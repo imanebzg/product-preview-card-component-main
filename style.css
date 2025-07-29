@@ -1,0 +1,192 @@
+:root{
+    --clr-primary-500: hsl(158, 42%, 18%);
+    --clr-primary-400: hsl(158, 36%, 37%);
+
+    --clr-secondary: hsl(30, 38%, 92%);
+
+    --clr-neutral-900: hsl(212, 21%, 14%);
+    --clr-neutral-400: hsl(228, 12%, 48%);
+    --clr-neutral-100: hsl(0, 0%, 100%);
+
+    --ff-accent:'Fraunces', serif;
+    --ff-base: 'Montserrat', sans-serif;
+    --fw-regular: 500;
+    --fw-bold: 700;
+}
+
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+h1, h2, h3 {
+    line-height: 1;
+}
+
+
+body {
+    font-family: var(--ff-base);
+    font-weight: var(--fw-regular);
+    font-size: 0.875rem;
+    color: var(--clr-neutral-400);
+    background-color: var(--clr-secondary);
+    display: grid;
+    min-height: 100vh;
+    place-content: center;
+    margin: 1rem;
+
+}
+
+
+.product {
+    --content-padding: 1.5rem;
+    --content-spacing: 1rem;
+    background-color: var(--clr-neutral-100);
+    padding: 0.1rem;
+    display: grid;
+    border-radius: 0.5rem;
+    max-width: 600px;
+}
+
+
+.product__img {
+    border-radius: 0.5rem;
+}
+
+
+.product__content {
+    display: grid;
+    padding: var(--content-padding);
+    gap: var(--content-spacing);
+}
+
+
+.product__category {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.35rem;
+
+}
+
+
+.product__title {
+    font-family: var(--ff-accent);
+    font-weight: var(--fw-bold);
+    color: var(--clr-neutral-900);
+    font-size: 1.75rem;
+}
+
+
+.flex-group {
+    display: flex; 
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+
+.product__price {
+    color: var(--clr-primary-400);
+    font-weight: var(--fw-bold);
+    font-family: var(--ff-accent);
+    font-size: 1.75rem;
+}
+
+
+.product__original-price {
+    text-decoration: line-through;
+}
+
+
+button {
+    cursor: pointer;
+    background-color: var(--clr-primary-400);
+    color: var(--clr-neutral-100);
+    padding: 0.6rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    gap: 0.5rem;
+    outline: none;           
+    border: none;  
+}
+
+.button[data-icon="shopping-cart"]::before {
+    content:"";
+    background-image: url('images/icon-cart.svg');
+    width: 15px;
+    height: 16px;
+    
+}
+
+.button:is(:hover, :focus) {
+    background-color: var(--clr-primary-500);
+
+
+}
+button:focus {
+  outline: 2px solid var(--clr-primary-500);  
+  }
+
+
+@media (min-width: 600px) {
+  .product {
+      --content-padding: 2rem;
+      grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0); 
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap; 
+  width: 1px;
+}
